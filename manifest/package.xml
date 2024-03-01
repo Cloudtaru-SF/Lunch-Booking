@@ -6,6 +6,10 @@
 		<name>ApexClass</name>
 	</types>
 	<types>
+		<members>Lunch_Booking</members>
+		<name>CustomApplication</name>
+	</types>
+	<types>
 		<members>LB_Order_Time__c.LunchEndTime__c</members>
 		<members>LB_Order_Time__c.LunchStartTime__c</members>
 		<members>LB_Order_Time__c.PreBookingEndTime__c</members>
@@ -29,6 +33,12 @@
 		<members>Lunch_Order__c</members>
 		<members>Vendor_App</members>
 		<name>CustomTab</name>
+	</types>
+	<types>
+		<members>Lunch_Booking_UtilityBar</members>
+		<members>Vendor_App</members>
+		<members>Vendor_App1</members>
+		<name>FlexiPage</name>
 	</types>
 	<types>
 		<members>lB_VendorApp</members>
