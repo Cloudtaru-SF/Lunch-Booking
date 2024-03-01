@@ -1,0 +1,67 @@
+<template>
+
+
+    <div class="container slds-text-align_center">
+        <img src={breakfastimg} alt="non-veg" class="responsive-image slds-p-right_small">
+        <h1 class="heading">Lunch Booking</h1>
+    </div>
+    <!-- width="6%" style="margin-bottom: 1%;" -->
+    <div class="gear" lwc:if={gearDecide}>
+        <lightning-icon icon-name='utility:settings' alternative-text='change timings' size='medium' name="settingicon"
+            title='settings' onclick={handleClick} variant='container'></lightning-icon>
+    </div>
+    <!-- </div> -->
+
+
+    <div lwc:if={updateTiming}>
+        <c-l-b_modal-pop-up>
+            <span slot="header"> Lunch Timings</span>
+            <span slot="headerIcon"><lightning-icon icon-name="utility:close" size="samll" class="slds-float_right"
+                    alternative-text="Indicates close" onclick={handleClick} name="close">
+                </lightning-icon></span>
+            <span slot="body">
+                <lightning-layout multiple-rows="true" vertical-align="center"
+                    class="x-large slds-align_absolute-center body-mp">
+                    <lightning-layout-item size="6" padding="around-small">
+                        <lightning-input name="lunchmintime" onchange={handleChange} value={minLunch}
+                            label="Lunch Min Time" type="text" pattern="^(?:[01]\d|2[0-3]):[0-5]\d$"
+                            message-when-pattern-mismatch="Please enter a valid time format" required></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <lightning-input name="lunchmaxtime" onchange={handleChange} value={maxLunch}
+                            label="Lunch Max Time" type="text" pattern="^(?:[01]\d|2[0-3]):[0-5]\d$"
+                            message-when-pattern-mismatch="Please enter a valid time format" required></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <lightning-input name="sbstarttime" onchange={handleChange} value={sbstartTime}
+                            label="Spot Booking Start Time" type="text" pattern="^(?:[01]\d|2[0-3]):[0-5]\d$"
+                            message-when-pattern-mismatch="Please enter a valid time format" required></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <lightning-input name="sbendtime" onchange={handleChange} value={sbendTime}
+                            label="Spot Booking End Time" type="text" pattern="^(?:[01]\d|2[0-3]):[0-5]\d$"
+                            message-when-pattern-mismatch="Please enter a valid time format" required></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <lightning-input name="prebookingmaxtime" onchange={handleChange} value={preMaxTime}
+                            label="Pre Booking Max Time" type="text" pattern="^(?:[01]\d|2[0-3]):[0-5]\d$"
+                            message-when-pattern-mismatch="Please enter a valid time format" required></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" padding="around-small">
+
+                    </lightning-layout-item>
+                </lightning-layout>
+                <div class="slds-p-around_x-small slds-align_absolute-center">
+                    <p><b>Note: Enter the Time in 24 Hour Format. [00:00]</b></p>
+                </div>
+            </span>
+            <span slot="footer">
+                <lightning-button label="Save" variant="brand" name="save" onclick={handleClick}
+                    class="slds-m-left_x-small">
+                </lightning-button>
+                <lightning-button label="Cancel" name="cancel" onclick={handleClick} class="slds-m-left_x-small">
+                </lightning-button>
+            </span>
+        </c-l-b_modal-pop-up>
+    </div>
+</template>

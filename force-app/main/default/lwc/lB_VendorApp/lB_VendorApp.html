@@ -1,0 +1,141 @@
+<template>
+    <lightning-card>
+
+        <!-- background -->
+
+        <template lwc:if={loading}>
+            <!-- <c-l-b_modal-pop-up>
+                <span slot="body">
+            <img src={loadingAnim} alt="loadingAnim"></span>
+            </c-l-b_modal-pop-up> -->
+
+            <div class="modal-background" if:true={loading}>
+                <div class="modal-content">
+                    <!-- Loading animation -->
+                    <div class="loading-animation">
+                        <!-- Include your loading animation here -->
+                        <img src={loadingAnim} alt="loadingAnim">
+                    </div>
+                    <!-- Additional content -->
+                    <!-- <p>Loading...</p> -->
+                </div>
+            </div>
+
+
+        </template>
+
+
+        <!-- lunch time update component -->
+        <c-l-b_luch-time-update></c-l-b_luch-time-update>
+
+        <template lwc:if={mobile}>
+            <div class="slds-box">
+            <!--After a barcode is successfully scanned,its value is displayed here -->
+
+            <div
+                class="slds-var-m-vertical_large slds-var-p-vertical_medium slds-text-align_center slds-border_top slds-border_bottom">
+
+                Order Number is:
+
+                <span class="slds-text-heading_small">{scannedBarcode}</span>
+                <span>
+                    <div lwc:if={scannedBarcode}>
+                        <lightning-button variant="brand" class="slds-var-m-left_x-small" icon-name="utility:check"
+                            label="Consumed" title="Open a camera view and look for a barcode to scan"
+                            onclick={handleConsumedClick}></lightning-button>
+                    </div>
+                </span>
+
+            </div>
+
+            <!-- This is static help text -->
+
+            <div class="slds-align_absolute-center slds-text-align_center slds-text-color_weak">
+
+                Click Scan Barcode to open a barcode scanner camera view.
+
+            </div>
+
+            <!-- The click-to-scan button;Disabled if BarcodeScanner isn’t available -->
+
+            <div class="slds-text-align_center">
+
+                <lightning-button variant="brand" class="slds-var-m-left_x-small" disabled={scanButtonDisabled}
+                    icon-name="utility:cases" label="Scan Barcode"
+                    title="Open a camera view and look for a barcode to scan" onclick={handleBeginScanClick}>
+
+                </lightning-button>
+
+            </div>
+        </div>
+        </template>
+        <template lwc:else>
+            <lightning-card>
+                <div class="slds-box slds-p-around_xx-small">
+                    <template if:true={data}>
+                        <p style="padding:5px"><b>Ordered Data:</b></p>
+                        <c-l-w-c-data-table-util records={data} show-search-box={showBox} columns={columnsDataTable}
+                            max-row-selection={totalRecords} key-field="Name" show-pagination={showPag}
+                            total-records={totalRecords}>
+                        </c-l-w-c-data-table-util>
+                    </template>
+                </div>
+            </lightning-card>
+        </template>
+        <br />
+        <br />
+        <template lwc:if={mobile}>
+        <lightning-button label="Orders" name="Orders" variant={buttnOrderVarient} onclick={handleDataButtons}
+            class="slds-m-left_x-small"></lightning-button>
+        <lightning-button label="Consumed" name="Consumed" variant={buttnConsumedVarient} onclick={handleDataButtons}
+            class="slds-m-left_x-small"></lightning-button>
+
+        <template lwc:if={todayData.length}>
+            <div class="tableheaders">
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-7">
+                        <span><b>S.No</b></span>
+                    </div>
+                    <div class="slds-col slds-size_2-of-7" data-name="Name" onclick={sortHandler}>
+                        <span ><b>Order No.</b></span>
+                    </div>
+                    <div class="slds-col slds-size_2-of-7" data-name="Booking_Type__c" onclick={sortHandler}>
+                        <span><b>Booking Type</b></span>
+                    </div>
+                    <div class="slds-col slds-size_2-of-7" data-name="Meal_Type__c" onclick={sortHandler}>
+                        <span><b>Meal</b></span>
+                    </div>
+                </div>
+            </div>
+            <template for:each={todayData} for:item="record">
+                <div key={record.Id} class="tile">
+                    <!-- Display record fields here -->
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-7">
+                            <span><b>{record.Number}</b></span>
+                        </div>
+                        <div class="slds-col slds-size_2-of-7">
+                            <span><b>{record.Name}</b></span>
+                        </div>
+                        <div class="slds-col slds-size_2-of-7">
+                            <span><b>{record.Booking_Type__c}</b></span>
+                        </div>
+                        <div class="slds-col slds-size_2-of-7">
+                            <span><img src={record.icon} alt={record.icon} width="50px"></span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <div class="slds-text-align_center slds-var-m-vertical_large">
+           <span> <b>* veg - </b><img src={veg} alt={veg} width="30px"></span> &nbsp;&nbsp;
+           <span> <b> nonveg - </b><img src={nonveg} alt={nonveg} width="30px"></span>
+        </div>
+        </template>
+        <template lwc:else>
+            <div class="slds-box slds-p-around_xx-small slds-m-around_small">
+                <b>No records Found...!</b>
+            </div>
+        </template>
+    </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,129 @@
+.c-container {
+  border: 1px solid #d8dde6;
+  margin: 10px 0 20px;
+}
+
+
+.gradient-btn {
+  background-color: white; 
+  border: 2px solid #007bff;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.2s;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 90%;
+}
+
+.gradient-btn:hover {
+  background-image: linear-gradient(to bottom, #007bff, #0056b3);
+  color: white;
+  border-color: #666;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.red-btn:hover {
+  background-image: linear-gradient(to bottom, #fc2121, #fd7373);
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+.lightning-icon {
+  color: white;
+}
+
+
+.ticket-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-details {
+  flex: 1;
+  text-align: center;
+  
+  font-size: large;
+}
+
+.qr-code {
+  flex: 1;
+  text-align: center; /* Center align ticket details */
+  border-left: 1px dashed #ccc;   /* Add dashed border to the right */
+  padding-left: 20px;   /* Add padding to separate the dashed line */
+  margin-left: 20px;   /* Add margin to separate the dashed line */
+}
+
+.qr-code img {
+  max-width: 40%;
+  height: auto;
+}
+
+.container {
+  text-align: center;
+  display: block;
+  align-items: center;
+}
+
+
+/* Styles for laptops and larger screens */
+@media (min-width: 601px) {
+    .responsive-image {
+        max-width: 7%;
+        height: auto;
+    }
+    .heading {
+        font-family: Arial, sans-serif;
+        color: #333333; /* Dark text color */
+        text-align: center;
+        font-size: 36px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-bottom: 2px solid #333333;/* Dark border bottom */
+        display: inline-block; /* Ensure border bottom only covers text width */
+    }
+  }
+
+  /* Styles for mobile devices */
+@media (max-width: 600px) {
+  .responsive-image {
+      max-width: 50%;
+      height: auto;
+  }
+  .heading {
+      font-family: Arial, sans-serif;
+      color: #333333; /* Dark text color */
+      text-align: center;
+      font-size: 36px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-bottom: 2px solid #333333;/* Dark border bottom */
+      display: inline-block; /* Ensure border bottom only covers text width */
+  }
+}
+.gifAnim{
+  padding: 10px;
+}
+
+/* modalPopup.css */
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

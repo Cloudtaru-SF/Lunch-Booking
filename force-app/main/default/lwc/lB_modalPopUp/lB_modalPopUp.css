@@ -1,0 +1,22 @@
+.headerbg{
+    text-align: left;
+    background:linear-gradient(90deg, #00A6DD 55%, #00A6DD 100%);
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+}
+
+.footer-override{
+	text-align: center !important;
+	background: white !important;
+    border: none !important;
+}
+
+.body-content{
+  /* overflow: initial; */
+  position: relative;
+  max-height: 70vh;
+}

@@ -1,0 +1,102 @@
+<template>
+  <template lwc:if={loading}>
+    <!-- <c-l-b_modal-pop-up>
+        <span slot="body">
+    <img src={loadingAnim} alt="loadingAnim"></span>
+    </c-l-b_modal-pop-up> -->
+
+    <div class="modal-background" if:true={loading}>
+        <div class="modal-content">
+            <!-- Loading animation -->
+            <div class="loading-animation">
+                <!-- Include your loading animation here -->
+                <img src={loadingAnim} alt="loadingAnim">
+            </div>
+            <!-- Additional content -->
+            <!-- <p>Loading...</p> -->
+        </div>
+    </div>
+</template>
+  <lightning-card>
+    <!-- <img src={lbImage} 
+      class="slds-align_absolute-center"></img> -->
+
+      <div >
+        <div class="container slds-text-align_center">
+        <img src={breakfastimg} alt="non-veg"   class="responsive-image slds-p-right_small">
+        <h1 class="heading">Lunch Booking</h1>
+      </div>
+      <img src={lunchAnime} alt="lunchAnime"   class="gifAnim slds-p-right_small">
+      
+    <div>
+      <lightning-layout>
+        <lightning-layout-item padding="around-small" size="6">
+          <button class="gradient-btn" onclick={handleClick} name="preorder">Pre-Order</button>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small" size="6">
+          <button class="gradient-btn" onclick={handleClick} name="spot">Spot Booking</button>
+        </lightning-layout-item>
+      </lightning-layout>
+    </div>
+    <template if:true={isPopupTrue}>
+      <c-l-b_modal-pop-up>
+        <span slot="header"> Lunch Booking</span>
+        <span slot="headerIcon"><lightning-icon icon-name="utility:close" size="samll" class="slds-float_right"
+            alternative-text="Indicates close" onclick={handleClick} name="close">
+          </lightning-icon> </span>
+        <span slot="body">
+          <lightning-card title="Lunch Booking">
+            <div class="slds-p-around_medium">
+              <div class="c-container">
+                <lightning-layout>
+                  <lightning-layout-item padding="around-small" size="6">
+                    <lightning-combobox name="mealtype" label="Meal Type" placeholder="Meal Type" value={newMealType}
+                      options={mealTypeOptions} onchange={handleChange}>
+                    </lightning-combobox>
+                  </lightning-layout-item>
+                  <lightning-layout-item padding="around-small" size="6">
+                    <lightning-input type="date" name="mealdate" label="Book For" value={dateAccording}
+                      disabled></lightning-input>
+                  </lightning-layout-item>
+                </lightning-layout>
+              </div>
+              <div>
+                <lightning-layout>
+                  <lightning-layout-item padding="around-small" size="6">
+                    <button class="gradient-btn" onclick={handleClick} name="order">Order</button>
+                  </lightning-layout-item>
+                  <lightning-layout-item padding="around-small" size="6">
+                    <button class="gradient-btn red-btn" onclick={handleClick} name="cancel">Cancel</button>
+                  </lightning-layout-item>
+                </lightning-layout>
+              </div>
+            </div>
+          </lightning-card>
+        </span>
+        <span slot="footer">
+        </span>
+      </c-l-b_modal-pop-up>
+    </template>
+
+    <template lwc:if={showBooking}>
+      <div class="ticket-container">
+        <div class="ticket-details">
+          <h2><u> Order Details: </u></h2>
+          <p>Order No:<strong> {orderData.Name}</strong></p>
+          <p>Event Name:<strong> {orderData.Booking_Type__c} </strong></p>
+          <p>Meal Type:<strong> {orderData.Meal_Type__c}</strong></p>
+          <p>Date:<strong> {orderData.Booking_Date__c}</strong></p>
+          <!-- Add more ticket details as needed -->
+          <br />
+          <lightning-button variant="destructive-text" label="Close" title="Close Order Details"
+            onclick={handleCloseBooking} class="slds-m-left_x-small"></lightning-button>
+        </div>
+        <div class="qr-code">
+          <img src={imgUrl} alt="QR Code">
+        </div>
+      </div>
+    </template>
+    <c-l-b_booking-status></c-l-b_booking-status>
+    </div>
+  </lightning-card>
+</template>

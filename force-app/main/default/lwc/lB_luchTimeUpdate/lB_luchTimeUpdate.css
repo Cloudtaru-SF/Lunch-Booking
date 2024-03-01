@@ -1,0 +1,69 @@
+.lgc-bg {
+    background-color: rgb(242 242 242);
+}
+
+*{
+    font-family: Arial, sans-serif; 
+}
+
+/* .heading {
+    font-family: Arial, sans-serif;
+    color: #333333; Dark text color
+    text-align: center;
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #333333;Dark border bottom
+    display: inline-block; Ensure border bottom only covers text width
+} */
+.container {
+    text-align: center;
+    display: block;
+    align-items: center;
+}
+
+/* Styles for mobile devices */
+@media (max-width: 600px) {
+    .responsive-image {
+        max-width: 50%;
+        height: auto;
+    }
+    .heading {
+        font-family: Arial, sans-serif;
+        color: #333333; /* Dark text color */
+        text-align: center;
+        font-size: 36px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-bottom: 2px solid #333333;/* Dark border bottom */
+        display: inline-block; /* Ensure border bottom only covers text width */
+    }
+
+    .gear{
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+/* Styles for laptops and larger screens */
+@media (min-width: 601px) {
+    .responsive-image {
+        max-width: 7%;
+        height: auto;
+    }
+    .heading {
+        font-family: Arial, sans-serif;
+        color: #333333; /* Dark text color */
+        text-align: center;
+        font-size: 36px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-bottom: 2px solid #333333;/* Dark border bottom */
+        display: inline-block; /* Ensure border bottom only covers text width */
+    }
+
+    .gear{
+        padding-right: 10px;
+        text-align: right;
+    }
+}

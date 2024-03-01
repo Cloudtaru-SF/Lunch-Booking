@@ -1,0 +1,27 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class={sectionClass}>
+        <div class="slds-modal__container slds-m-top_medium">
+            <div class="slds-modal__header headerbg">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col">
+                        <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">
+                            <slot name="header"></slot>
+                        </h1>
+                    </div>
+                    <div class="slds-col slds-size_0-of-12">
+                        <slot name="headerIcon"></slot>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-modal__content body-content slds-p-around_medium" id="modal-content-id-1">
+                <slot name="body">
+                </slot>
+            </div>
+            <div class={footerClass}>
+                <slot name="footer"></slot>
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+
+</template>

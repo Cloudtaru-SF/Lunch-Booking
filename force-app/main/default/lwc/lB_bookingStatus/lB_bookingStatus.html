@@ -1,0 +1,48 @@
+<template>
+    <lightning-card>
+        <lightning-tabset>
+            <lightning-tab label="Ordered" value="Ordered" name="ordered" onactive={tabChangeHandler}>
+
+            </lightning-tab>
+            <lightning-tab label="Consumed" value="Consumed" name="consumed" onactive={tabChangeHandler}>
+
+            </lightning-tab>
+        </lightning-tabset>
+        <div style="margin-left:70%;" >
+            <lightning-input style="width:80%;" type="search" label="Search" onchange={handleSearch}></lightning-input>
+        </div>
+        <div class="slds-m-around_medium">
+            <template if:true={data}>
+                <lightning-datatable if:true={columns.length} key-field="Id" data={data} columns={columns}
+                    hide-checkbox-column="true" onrowaction={callRowAction}>
+                </lightning-datatable>
+                <div lwc:if={testImage}>
+                    <!-- <template if:true={showSpinner}>
+                        <div class="spinner">
+                            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                        </div>
+                    </template> -->
+                    <c-l-b_modal-pop-up>
+                        <span slot="header"> QRCode</span>
+                        <span slot="headerIcon"><lightning-icon icon-name="utility:close" size="samll"
+                                class="slds-float_right" alternative-text="Indicates close" onclick={handleClick}
+                                name="close">
+                            </lightning-icon> </span>
+                        <span slot="body">
+                            <lightning-card>
+                                <img src={imgUrl} alt="Order" width="40%" height="40%"
+                                    class="slds-align_absolute-center">
+                            </lightning-card>
+                        </span>
+                        <span slot="footer">
+                        </span>
+                    </c-l-b_modal-pop-up>
+                </div>
+            </template>
+            <template if:true={error}>
+                {error}>
+            </template>
+        </div>
+    </lightning-card>
+
+</template>
