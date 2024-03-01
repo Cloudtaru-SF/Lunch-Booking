@@ -4,7 +4,6 @@ import LUNCH_ORDER__C_OBJECT from "@salesforce/schema/Lunch_Order__c";
 import getLunchTimings from '@salesforce/apex/LB_LunchBookingController.getLunchTimings';
 import createLunchOrder from '@salesforce/apex/LB_LunchBookingController.createLunchOrder';
 import Id from "@salesforce/user/Id";
-import lunchBookingImage from '@salesforce/resourceUrl/LunchBookingImage';
 import LBIMAGES from "@salesforce/resourceUrl/LBImages";
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getRetrieveLunchData from '@salesforce/apex/LB_LunchBookingController.retrieveLunchData';
@@ -24,7 +23,7 @@ export default class LB_lunchBooking extends LightningElement {
   showBooking = false;
   orderData = [];
   currentTime='';
-  lbImage=lunchBookingImage;
+  lbImage='';
   lunchAnime;
 
   loading=true;

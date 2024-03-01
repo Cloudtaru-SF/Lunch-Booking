@@ -2,7 +2,6 @@ import { LightningElement, wire, api } from 'lwc';
 import Id from "@salesforce/user/Id";
 import getStatusBooking from '@salesforce/apex/LB_LunchBookingController.getBookingStatus';
 import getRetrieveLunchData from '@salesforce/apex/LB_LunchBookingController.retrieveLunchData';
-import lunchBookingImage from '@salesforce/resourceUrl/LunchBookingImage';
 import { NavigationMixin } from 'lightning/navigation';
 import FORM_FACTOR from '@salesforce/client/formFactor';
 const columns = [
@@ -48,7 +47,6 @@ export default class LB_bookingStatus extends NavigationMixin(LightningElement) 
     activeTabContent = 'Ordered';
     initialRecords;
     showSpinner = false;
-    lbImage = lunchBookingImage;
     connectedCallback() {
         if (FORM_FACTOR == "Small") {
             this.columns = columns.map(ele=>{
